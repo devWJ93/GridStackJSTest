@@ -5,11 +5,11 @@
 /// <reference path = "../API/babylon.gui.d.ts" />
 /// <reference path = "../API/babylon.gui.js" />
 
-let inputString = prompt("추가할 개수를 입력하세요.", 0);
+var inputString = prompt("추가할 개수를 입력하세요.", 0);
 alert(inputString + "개를 출력합니다.");
-let createNum = parseInt(inputString);
+var createNum = parseInt(inputString);
 
-let inputArea = document.getElementById("grid-stack");
+var inputArea = document.getElementById("grid-stack");
 
 // fetch("./canvasData.json")
 //     .then((resp) => {
@@ -19,25 +19,25 @@ let inputArea = document.getElementById("grid-stack");
 //         console.log(data);
 //     });
 
-let createHTMLElement = (canvasName) => {
+var createHTMLElement = (canvasName) => {
     //grid-stack-item 생성
-    let grid_stack_item = document.createElement('div');
+    var grid_stack_item = document.createElement('div');
     grid_stack_item.setAttribute('class', 'grid-stack-item');
     grid_stack_item.setAttribute('data-gs-width', '5');
     grid_stack_item.setAttribute('data-gs-height', '5');
     inputArea.appendChild(grid_stack_item);
 
     //grid-stack-item-content 생성
-    let grid_stack_item_content = document.createElement('div');
-    grid_stack_item_content.setAttribute('class', 'grid-stack-item-content')
+    var grid_stack_item_content = document.createElement('div');
+    grid_stack_item_content.setAttribute('class', 'grid-stack-item-content');
     grid_stack_item.appendChild(grid_stack_item_content);
 
-    let canvasContent = document.createElement('canvas');
+    var canvasContent = document.createElement('canvas');
     canvasContent.setAttribute('id', canvasName);
     grid_stack_item_content.appendChild(canvasContent);
 };
 
-for(let i = 0; i < createNum; i++){
+for(var i = 0; i < createNum; i++){
     switch(i){
         case 0:
             createHTMLElement('renderCanvas');
@@ -69,8 +69,8 @@ for(let i = 0; i < createNum; i++){
 }
 
 function createBarChart(elementName){
-    let chartElement = document.getElementById(elementName).getContext('2d')
-    let barChart = new Chart(chartElement, {
+    var chartElement = document.getElementById(elementName).getContext('2d');
+    var barChart = new Chart(chartElement, {
         type: 'bar', //pie, line, doughnut, polarArea
         data: {
             labels: ['1', '2', '3', '4', '5'],
@@ -126,8 +126,8 @@ function createBarChart(elementName){
 }
 
 function createPieChart(elementName){
-    let chartElement = document.getElementById(elementName).getContext('2d')
-    let pieChart = new Chart(chartElement, {
+    var chartElement = document.getElementById(elementName).getContext('2d');
+    var pieChart = new Chart(chartElement, {
         type: 'pie', //pie, line, doughnut, polarArea
         data: {
             labels: ['1', '2', '3', '4', '5'],
@@ -182,8 +182,8 @@ function createPieChart(elementName){
 }
 
 function createLineChart(elementName){
-    let chartElement = document.getElementById(elementName).getContext('2d')
-    let lineChart = new Chart(chartElement, {
+    var chartElement = document.getElementById(elementName).getContext('2d');
+    var lineChart = new Chart(chartElement, {
         type: 'line', //pie, line, doughnut, polarArea
         data: {
             labels: ['1', '2', '3', '4', '5'],
@@ -238,9 +238,9 @@ function createLineChart(elementName){
 }
 
 function createBabylonScene(elementName) {
-    let engine;
-    let canvas;
-    let scene;
+    var engine;
+    var canvas;
+    var scene;
 
     document.addEventListener("DOMContentLoaded", startApp);
 
@@ -251,7 +251,7 @@ function createBabylonScene(elementName) {
 
     async function createScene() {
         engine = new BABYLON.Engine(canvas, true);
-        let scene = new BABYLON.Scene(engine);
+        var scene = new BABYLON.Scene(engine);
 
         var camera = new BABYLON.FreeCamera('FreeCamera', new BABYLON.Vector3(0, 5, -5), scene);
         camera.attachControl(canvas);
