@@ -35,7 +35,7 @@ let createHTMLElement = (canvasName) => {
     let canvasContent = document.createElement('canvas');
     canvasContent.setAttribute('id', canvasName);
     grid_stack_item_content.appendChild(canvasContent);
-}
+};
 
 for(let i = 0; i < createNum; i++){
     switch(i){
